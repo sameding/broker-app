@@ -11,6 +11,11 @@
     flex-direction: column;
     margin: 0 d(-1.5);
     border: 3px solid green;
+    padding: 1em;
+
+    label {
+      margin-right: 1em;
+    }
   }
 
   .row {
@@ -25,6 +30,13 @@
 
   .search-form {
     display: flex;
+  }
+
+  .section-form {
+    border-top: 1px solid grey;
+    margin: 4em 0;
+    padding: 2em 0;
+
   }
 
 }
