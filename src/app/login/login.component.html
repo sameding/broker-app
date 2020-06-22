@@ -1,0 +1,27 @@
+<section class="login">
+  <div class="title">Welcome to the Broker App. Log in to start using it!</div>
+
+  <form [formGroup]="form">
+
+    <div class="row">
+      <label>Email:</label>
+      <input type="text" formControlName="email">
+    </div>
+
+    <div class="row">
+      <label>Password:</label>
+      <input type="text" formControlName="password">
+    </div>
+
+    <div class="row actions">
+        <button (click)="onSubmit()" [disabled]="!form.valid">Log In!</button>
+    </div>
+
+  </form>
+
+</section>
+
+<div>
+  <span>Don't have an account yet! </span>
+  <a [routerLink]="['/signup']">Create one!</a>
+</div>

@@ -1,0 +1,465 @@
+---
+openapi: 3.0.2
+info:
+  title: Broker
+  description: Broker API
+  version: 1.0.1
+paths:
+  /brokers:
+    summary: Path used to manage the list of brokers.
+    description: The REST endpoint/path used to list and create zero or more `Broker`
+      entities.  This path contains a `GET` and `POST` operation to perform the list
+      and create tasks, respectively.
+    post:
+      requestBody:
+        description: A new `Broker` to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Broker'
+        required: true
+      tags:
+      - Broker
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponseObject'
+          description: Successful response.
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      operationId: createBroker
+      summary: Create a broker
+      description: Creates a new instance of a `Broker`.
+  /login:
+      summary: Path used to manage the log in of brokers.
+      description: The REST endpoint/path used to log in a broker
+        entities.  This path contains `POST` operation to perform the broker log in.
+      post:
+        requestBody:
+          description: Log In an existing broker.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BrokerLoginObject'
+          required: true
+        tags:
+        - Broker
+        responses:
+          200:
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/PostResponseObject'
+            description: Successful response.
+          400:
+            description: Bad request
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+          401:
+            description: Unauthorized
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+          500:
+            description: Internal Server Error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+          default:
+            description: Unexpected error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorResponse'
+        operationId: logInBroker
+        summary: Log In a broker
+        description: Login a new instance of a broker.
+  /clients:
+    summary: Path used to manage the list of clients.
+    description: The REST endpoint/path used to list and create zero or more `Client`
+      entities.  This path contains a `GET` and `POST` operation to perform the list
+      and create tasks, respectively.
+    get:
+      tags:
+      - Client
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientList'
+          description: Successful response - returns an array of `Client` entities.
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      operationId: getClients
+      summary: List All clients
+      description: Gets a list of all `Client` entities.
+      parameters:
+      - $ref: '#/components/parameters/FirstName'
+      - $ref: '#/components/parameters/LastName'
+    post:
+      requestBody:
+        description: A new `Client` to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+        required: true
+      tags:
+      - Client
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponseObject'
+          description: Successful response.
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      operationId: createClient
+      summary: Create a client
+      description: Creates a new instance of a `Client`.
+  /clients/{clientId}:
+    summary: Path used to manage a single `Client`.
+    description: The REST endpoint/path used to get, update, and delete single instances
+      of an `Client`.  This path contains `GET` operation
+      used to perform the get task and `PUT` to perform the update operation.
+    get:
+      tags:
+      - Client
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Client'
+          description: Successful response - returns a single `Client`.
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      operationId: getClient
+      summary: Get a Client
+      description: Gets the details of a single instance of a `Client`.
+    delete:
+      tags:
+      - Client
+      summary: Delete a client
+      description: Deletes an existing `Cleint`.
+      operationId: deleteClient
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    put:
+      tags:
+      - Client
+      summary: Update a Client
+      description: Updates an existing `Client`.
+      operationId: updateClient
+      requestBody:
+        description: Updated `Client` information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Client'
+        required: true
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    parameters:
+    - name: clientId
+      description: A unique identifier for a `Client`.
+      schema:
+        type: number
+      in: path
+      required: true
+components:
+  schemas:
+    PostResponseObject:
+      title: Root Type for PostResponseObject
+      description: The root of the PostResponseObject type's schema.
+      type: object
+      properties:
+        id:
+          description: Unique identified for the created object
+          type: string
+        content:
+          description: Created object
+          type: object
+    ErrorObject:
+      title: Root Type for ErrorObject
+      description: The root of the ErrorObject type's schema.
+      required:
+      - code
+      type: object
+      properties:
+        id:
+          description: Unique identifier for this incident
+          type: string
+        code:
+          description: |
+            The application error code
+          type: string
+          enum:
+          - VALIDATION_ERRORS
+          - RECORD_NOT_FOUND
+          - METHOD_NOT_ALLOWED
+          - EXCEEDED_MAX_GUESTS
+        detail:
+          description: |
+            A human readable detailed description of the error
+          type: object
+        message:
+          description: Error message
+          type: string
+    ErrorResponse:
+      title: Root Type for ErrorResponse
+      description: Generic error response object
+      required:
+      - errors
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorObject'
+    ClientList:
+      title: Root Type for ClientList
+      description: List of Client
+      type: object
+      properties:
+        listItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/Client'
+    Client:
+      title: Root Type for Client
+      description: Resource containing authenticated user details
+      type: object
+      properties:
+        id:
+          type: number
+        fname:
+          type: string
+        lname:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+        amount:
+          type: number
+        rate:
+          type: number
+        amortization:
+          type: number
+        brokerId:
+          type: number
+    Broker:
+      title: Root Type for Broker
+      description: Resource containing information of a broker
+      type: object
+      properties:
+        id:
+          type: number
+        fname:
+          type: string
+        lname:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    BrokerLoginObject:
+      title: Root Type for Broker login object requestBody
+      description: Resource containing request body for broker login request
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+  parameters:
+    clientId:
+      name: client_id
+      in: query
+      description: Unique identifier of a Client
+      required: true
+      schema:
+        type: integer
+    FirstName:
+      name: fname
+      in: query
+      description: Search term to filter a list by first name
+      required: false
+      schema:
+        type: string
+    LastName:
+      name: lname
+      in: query
+      description: Search term to filter a list by last name
+      required: false
+      schema:
+        type: string

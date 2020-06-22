@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+
+  ENABLE_PROD_MODE: false,
+  ENABLE_DEV_TOOLS: true,
+  ENABLE_ROUTE_TRACE: false,
+  ENABLE_ENCRYPTION: false,
+
+  production: false,
+  API_PATH: '/api/v1'
 };
 
 /*

@@ -1,0 +1,22 @@
+<app-header></app-header>
+<section class="client-detail">
+    <h2>Single Info Page For user {{ client?.id }} </h2>
+
+    <div class="row">First Name : {{client?.fname }}</div>
+
+    <div class="row">Last Name : {{client?.lname }}</div>
+
+    <div class="row">Creation Date : {{client?.createdAt | date: "yyyy-MM-dd" }}</div>
+
+    <div class="row">Mortgage Amount : {{client?.amount | currency: "CAD" }}</div>
+
+    <div class="row">Mortgage rate : {{(client?.rate)/100 | percent:'2.2' }}</div>
+
+    <div class="row">Mortgage amortization: {{client?.amortization }}</div>
+
+    <button (click)="calculate()">Calculate: </button>
+    <div class="mortgage-cal">
+      <span>Your Mortgage Payment is : {{ calculatedAmount | currency: 'CAD' }}</span>
+    </div>
+
+</section>

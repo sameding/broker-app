@@ -1,0 +1,72 @@
+<app-header></app-header>
+<section class="home">
+  <h1 class="title"> Welcome To the App {{ state.model.broker?.fname }}!</h1>
+
+  <ul *ngIf="hasClients" class="clients-list">
+
+    <h2>Here is the list of your clients!</h2>
+
+    <li *ngFor="let client of state.model.clients">
+      <div class="client-card">
+        {{ client?.fname }} | {{ client?.lname }} |
+        <a [routerLink]="['/client', client.id]">View More...</a> |
+        <button class="btn btn-primary" (click)="deleteClient(client.id)">Delete</button>
+      </div>
+    </li>
+
+
+    <h2>You Can filter your resuult </h2>
+
+    <form [formGroup]="searchForm" class="search-form">
+      <div class="search-row">
+        <input type="text" formControlName="first_name">
+      </div>
+      <div class="search-row">
+        <input type="text" formControlName="last_name">
+      </div>
+      <button class="btn btn-primary" (click)="filterResult()">Filter</button>
+    </form>
+
+  </ul>
+
+  <div *ngIf="!hasClients"> You don't have clients! Create one</div>
+
+  <div>
+    <h3>CREATE A NEW CLIENT</h3>
+
+    <form [formGroup]="form">
+
+      <div class="row">
+        <label>First Name:</label>
+        <input type="text" formControlName="fname">
+      </div>
+
+      <div class="row">
+        <label>Last Name:</label>
+        <input type="text" formControlName="lname">
+      </div>
+
+      <div class="row">
+        <label>Mortage Amount:</label>
+        <input type="number" formControlName="amount">
+      </div>
+
+      <div class="row">
+        <label>Mortage Rate:</label>
+        <input type="number" formControlName="rate">
+      </div>
+
+      <div class="row">
+        <label>Mortage Amortization:</label>
+        <input type="number" formControlName="amortization">
+      </div>
+
+      <div class="row actions">
+          <button (click)="createClient()" [disabled]="!form.valid">Create Client!</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
