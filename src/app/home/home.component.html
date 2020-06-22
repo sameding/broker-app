@@ -14,24 +14,26 @@
       </div>
     </li>
 
-
-    <h2>You Can filter your resuult </h2>
-
-    <form [formGroup]="searchForm" class="search-form">
-      <div class="search-row">
-        <input type="text" formControlName="first_name">
-      </div>
-      <div class="search-row">
-        <input type="text" formControlName="last_name">
-      </div>
-      <button class="btn btn-primary" (click)="filterResult()">Filter</button>
-    </form>
+    <div class="section-form">
+      <h3>YOU CAN FILTER YOUR RESULTS</h3>
+      <form [formGroup]="searchForm">
+        <div class="row">
+          <label>First Name:</label>
+          <input type="text" formControlName="first_name" placeholder="First Name">
+        </div>
+        <div class="row">
+          <label>Last Name:</label>
+          <input type="text" formControlName="last_name" placeholder="Last Name">
+        </div>
+        <button class="btn btn-primary" (click)="filterResult()">Filter</button>
+      </form>
+    </div>
 
   </ul>
 
   <div *ngIf="!hasClients"> You don't have clients! Create one</div>
 
-  <div>
+  <div class="section-form">
     <h3>CREATE A NEW CLIENT</h3>
 
     <form [formGroup]="form">
