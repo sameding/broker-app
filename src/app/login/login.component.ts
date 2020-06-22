@@ -45,8 +45,7 @@ export class LoginComponent {
     ).subscribe(status => {
         if (!status.failed) {
             this.resetValues();
-            //this.router.navigate(['/']);
-            setTimeout(() => { this.router.navigate(['/'])}, 5000);
+            setTimeout(() => { this.router.navigate(['/'])}, 2000);
         }  else if(status.failed) {
           alert('Log In failed. try again')
         }

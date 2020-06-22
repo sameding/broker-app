@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   private fetch() {
-    this.store.dispatch(new CLIENT_ACTIONS.FetchManyClients(null, null))
+    setTimeout(() => {this.store.dispatch(new CLIENT_ACTIONS.FetchManyClients(null, null))}, 1000);
   }
 
   ngOnDestroy(): void {
