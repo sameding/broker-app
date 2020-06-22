@@ -13,6 +13,9 @@ form {
   display: flex;
   flex-direction: column;
   margin: 0 d(-1.5);
+  label{
+    margin-right: 1em;
+  }
 }
 
 
