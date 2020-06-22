@@ -1,0 +1,10 @@
+{
+  "getBroker" : "SELECT TOP(1) * FROM [dbo].[broker] WHERE email = @email",
+  "addBroker" : "INSERT INTO [dbo].[broker] (fname,lname,email,password,createdAt) OUTPUT inserted.* VALUES (@fname,@lname,@email,@password,@createdAt)",
+
+  "addClient" : "INSERT INTO [dbo].[client] (fname,lname,createdAt,amount,rate,amortization,brokerId) OUTPUT inserted.* VALUES (@fname,@lname,@createdAt,@amount,@rate,@amortization,@brokerId)",
+  "getAllBrokerClients" : "SELECT *  FROM [dbo].[client] WHERE brokerId = @brokerId AND fname = @fname AND lname = @lname",
+  "getSingleClient" : "SELECT * FROM [dbo].[client] WHERE id = @id AND brokerId = @brokerId",
+  "deleteClient" : "DELETE FROM [dbo].[client] OUTPUT deleted.* WHERE id = @id AND brokerId = @brokerId",
+  "updateClient" : "UPDATE [dbo].[client] SET fname=@fname,lname=@lname,createdAt=@createdAt,updatedAt=@updatedAt,amount=@amount,rate=@rate,amortization=@amortization OUTPUT inserted.* WHERE id = @id AND brokerId = @brokerId"
+}

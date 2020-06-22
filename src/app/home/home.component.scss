@@ -1,0 +1,42 @@
+.home {
+  margin: auto;
+  width: 75%;
+
+  .h1 {
+    margin-left: 1em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 d(-1.5);
+    border: 3px solid green;
+    padding: 1em;
+
+    label {
+      margin-right: 1em;
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+  }
+
+  li {
+    margin: 0.5em 0;
+  }
+
+  .search-form {
+    display: flex;
+  }
+
+  .section-form {
+    border-top: 1px solid grey;
+    margin: 4em 0;
+    padding: 2em 0;
+
+  }
+
+}

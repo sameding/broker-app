@@ -1,0 +1,26 @@
+.login{
+  margin: 10% auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.title {
+  margin-bottom: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 d(-1.5);
+  label{
+    margin-right: 1em;
+  }
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}

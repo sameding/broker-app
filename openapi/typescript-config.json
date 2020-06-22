@@ -1,0 +1,6 @@
+{
+    "ngVersion": "9.1.11",
+    "modelPropertyNaming": "original",
+    "supportsES6": true,
+    "providedInRoot": "true"
+}

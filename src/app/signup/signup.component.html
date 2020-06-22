@@ -1,0 +1,35 @@
+<section class="signup">
+  <h2>WELCOME TO THE ACCOUNT CREATION PAGE!</h2>
+  <div class="section-form">
+    <h3>CREATE A NEW CLIENT</h3>
+
+    <form [formGroup]="signForm">
+
+      <div class="row">
+        <label>First Name:  </label>
+        <input type="text" formControlName="fname">
+      </div>
+
+      <div class="row">
+        <label>Last Name:  </label>
+        <input type="text" formControlName="lname">
+      </div>
+
+      <div class="row">
+        <label>Email:</label>
+        <input type="email" formControlName="email">
+      </div>
+
+      <div class="row">
+        <label>Password:</label>
+        <input type="password" formControlName="password">
+      </div>
+
+      <div class="row actions">
+          <button (click)="createBroker()" [disabled]="!signForm.valid">Create Broker Account!</button>
+      </div>
+
+    </form>
+
+  </div>
+</section>
