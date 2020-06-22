@@ -109,7 +109,6 @@ const getBrokerClients  = async (brokerId, fname, lname, cb) => {
 
     cb(null, result.recordset);
   } catch (error) {
-    console.log('1.----: ', error);
     cb(error, null);
   }
 };
