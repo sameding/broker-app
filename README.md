@@ -1,27 +1,27 @@
 # BrokerApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+This project is a simple application to demonstrate the use of angular, ngrx and node 
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Running the app
 
-## Code scaffolding
+Git clone this repository on your local machine
+` git clone https://github.com/sameding/broker-app.git`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Then install the dependencies
+` npm install`
 
-## Build
+Run the Express Server
+`npm run start:server`
+The server is running on http://localhost:3000 if you want to make some call to the API using a tool such as Postman.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run the Front End Application
+`npm run start`
+The Front is running on http://localhost:4200
+
+
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
